@@ -1,0 +1,402 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+:root {
+    --primary-color: #047aed;
+    --secondary-color: #1c3fa8;
+    --dark-color: #002240;
+    --light-color: #f4f4f4;
+    --success-color: #5cb85c; 
+    --error-color: #d9534f; 
+
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    color: #333;
+    line-height: 1.6;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+h1, 
+h2 {
+    font-weight: 300;
+    line-height: 1.2;
+    margin: 10px 0;
+}
+
+p {
+    margin: 10px 0;
+}
+
+/* Keeps images within their container */
+img {
+    width: 100%;
+}
+
+code, pre {
+    background: #333;
+    color: #fff;
+    padding: 10px;
+}
+
+.hidden {
+    visibility: hidden;
+    height: 0;
+}
+
+/* Navbar */
+.navbar {
+    background-color: var(--primary-color);
+    color: #fff;
+    height: 70px;
+}
+
+.navbar ul {
+    display: flex;
+
+}
+
+.navbar a {
+    color: #fff;
+    padding: 10px;
+    margin: 0 5px;
+}
+
+/* Adds border to bottom of links when hovering */
+.navbar a:hover {
+    border-bottom: 2px #fff solid;
+}
+
+.navbar .flex {
+    /* Moves content to either side of the navbar */ 
+    justify-content: space-between;
+}
+
+/* SHOWCASE */
+.showcase {
+    height: 400px;
+    background-color: var(--primary-color);
+    color: #fff;
+    /* Allows for absolute positining within */
+    position: relative;
+}
+
+.showcase h1 {
+    font-size: 40px;
+}
+
+.showcase p {
+    margin: 20px 0;
+}
+
+.showcase .grid {
+    /* Removes scrollbar */
+    overflow: visible;
+    /* 1)Text 2)Form */
+    grid-template-columns: 55% 45%;
+    gap: 30px;
+}
+
+.showcase-text {
+    animation: slideInFromLeft 1s ease-in;
+}
+
+.showcase-form {
+    position: relative;
+    top: 60px;
+    height: 350px;
+    width: 400px;
+    padding: 40px;
+    z-index: 100; /* Always in front */
+    justify-self: flex-end;
+    animation: slideInFromRight 1s ease-in;
+
+}
+
+.showcase-form .form-control {
+    margin: 30px 0;
+}
+
+.showcase-form input[type='text'], 
+.showcase-form input[type='email'] {
+    border: 0;
+    border-bottom: 1px solid #b4becb;
+    width: 100%; /* Border bottom goes all the way across */
+    padding: 3px;
+    font-size: 16px;
+}
+
+.showcase-form input:focus {
+    outline: none; /* Remove border when user clicks on input */ 
+}
+
+.showcase::before,
+.showcase::after {
+    content: "";
+    position: absolute;
+    height: 100px;
+    bottom: -70px;
+    right: 0;
+    left: 0;
+    background: #fff;
+    transform: skewY(-3deg);
+    /* The slant will work across different browsers */
+    -webkit-transform: skewY(-3deg); /* Chrome, Safari */
+    -moz-transform: skewY(-3deg); /* Mozilla */
+    -ms-transform: skewY(-3deg); /* Internet Explorer, etc */
+}
+
+/* STATS */
+.stats {
+    padding-top: 100px;    
+    animation: slideInFromBottom 1s ease-in;
+}
+
+.stats-heading {
+    max-width: 500px;
+    margin: auto;
+}
+
+.stats .grid h3 {
+    font-size: 35px;
+}
+
+.stats .grid p {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Cli */
+.cli .grid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+}
+
+.cli .grid > *:first-child {
+    grid-column: 1 / span 2;
+    grid-row: 1 / span 2;
+}
+
+/* Cloud */
+.cloud .grid {
+    grid-template-columns: 4fr 3fr;
+}
+
+/* Languages */
+.languages .card {
+    text-align: center;
+    margin: 18px 10px 40px;
+    transition: transform 0.2s ease-in; /* Makes animation below smoother */
+}
+
+.languages .flex {
+ flex-wrap: wrap;   
+}
+
+.languages .card h4 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.languages .card:hover {
+    transform: translateY(-15px); /* Animation */
+} 
+
+/* Features */
+.features-head img,
+.docs-head img {
+    width: 200px;
+    justify-self: flex-end;
+}
+
+.features-sub-head img {
+    width: 300px;
+    justify-self: flex-end;
+}
+
+.features-sub-head p {
+    color: #333;
+}
+
+.features-sub-head h1 {
+    color: #333;
+}
+
+.features-main .card > i {
+    margin-right: 20px;
+}
+
+.features-main .grid {
+    padding: 30px;
+}
+
+.features-main .grid *:first-child {
+    grid-column: 1 / span 3;
+}
+
+.features-main .grid *:nth-child(2) {
+    grid-column: 1 / span 2;
+}
+
+/* Docs Main */
+
+.docs-main h3 {
+    color: #333;
+    margin: 20px 0;
+}
+
+.docs-main .grid {
+    grid-template-columns: 1fr 2fr;
+    align-items: flex-start; /* Aligns items up the top */
+}
+
+.docs-main nav li {
+    font-size: 17px;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    border-bottom: 1px #ccc solid;
+}
+
+.docs-main a:hover {
+    font-weight: bold;
+}
+
+
+/* Footer */
+.footer .social a {   
+    margin: 0 10px;
+}
+
+/* Animations */
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromRight {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromTop {
+    0% {
+        transform: translateY(-100%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromBottom {
+    0% {
+        transform: translateY(100%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+
+
+/* Tablets and under */
+@media(max-width: 768px) {
+    .grid,
+    .showcase .grid,
+    .stats .grid,
+    .cli .grid,
+    .cloud .grid,
+    .features-main .grid, 
+    .docs-main .grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+    }
+
+    .showcase {
+        height: auto;
+    }
+
+    .showcase-text {
+        text-align: center;
+        margin-top: 40px;
+        animation: slideInFromTop 1s ease-in;
+    }
+
+    .showcase-form {
+        justify-self: center; /* Put on a flexbox item */
+        margin: auto;
+        animation: slideInFromBottom 1s ease-in;
+    }
+
+    /* Stacks them */
+    .cli .grid > *:first-child {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .features-head, 
+    .features-sub-head, 
+    .docs-head {
+        text-align: center;
+    }
+
+    .features-head img, 
+    .features-sub-head img, 
+    .docs-head img {
+        justify-self: center;
+    }
+
+    .features-main .grid > *:first-child, 
+    .features-main .grid > *:nth-child(2) {
+        grid-column: 1;
+    }
+}
+
+
+/* Mobile */
+@media(max-width: 500px) {
+    .navbar {
+        height: 110px;
+    }
+    
+    .navbar .flex {
+        flex-direction: column; /* Logo and links now stack */
+    }
+
+    .navbar ul {       
+         padding: 10px;
+         background-color: rgba(0, 0, 0, 0.1);
+    }
+}
+
+
+/*
+https://www.youtube.com/watch?v=p0bGHP-PXD4&t=2136s
+Wow...you are learning so much! 
+You are incredible! 
+*/
